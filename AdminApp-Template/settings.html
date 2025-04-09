@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdminApp - Settings</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+  <!-- Sidebar -->
+  <aside class="w-64 bg-gray-800 text-white h-screen fixed">
+    <div class="p-4">
+      <h3 class="text-xl font-bold mb-6">Admin Panel</h3>
+      <ul class="mt-4 space-y-2">
+        <li><a href="/dashboard.html" class="hover:bg-gray-700 p-2 block rounded">Dashboard</a></li>
+        <li><a href="/slides.html" class="hover:bg-gray-700 p-2 block rounded">Slides</a></li>
+        <li><a href="/products.html" class="hover:bg-gray-700 p-2 block rounded">Products</a></li>
+        <li><a href="/categories.html" class="hover:bg-gray-700 p-2 block rounded">Categories</a></li>
+        <li><a href="/brands.html" class="hover:bg-gray-700 p-2 block rounded">Brands</a></li>
+        <li><a href="/orders.html" class="hover:bg-gray-700 p-2 block rounded">Orders</a></li>
+        <li><a href="/reviews.html" class="hover:bg-gray-700 p-2 block rounded">Reviews</a></li>
+        <li><a href="/users.html" class="hover:bg-gray-700 p-2 block rounded">Users</a></li>
+        <li><a href="/settings.html" class="hover:bg-gray-700 p-2 block rounded">Settings</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="ml-64 p-8">
+    <h2 class="text-2xl font-bold mb-6">Settings</h2>
+    <form class="bg-white shadow-md rounded-lg p-6">
+      <h3 class="text-lg font-bold mb-4">SSLCommerz Payment Gateway Configuration</h3>
+      <div class="mb-4">
+        <label for="store-id" class="block text-gray-700 font-bold mb-2">Store ID</label>
+        <input type="text" id="store-id" class="w-full p-2 border rounded-md" placeholder="Enter Store ID" required>
+      </div>
+      <div class="mb-4">
+        <label for="store-password" class="block text-gray-700 font-bold mb-2">Store Password</label>
+        <input type="password" id="store-password" class="w-full p-2 border rounded-md" placeholder="Enter Store Password" required>
+      </div>
+      <div class="mb-4">
+        <label for="api-endpoint" class="block text-gray-700 font-bold mb-2">API Endpoint</label>
+        <input type="text" id="api-endpoint" class="w-full p-2 border rounded-md" placeholder="Enter API Endpoint (e.g., https://sandbox.sslcommerz.com)" required>
+      </div>
+      <div class="mb-4">
+        <label for="currency" class="block text-gray-700 font-bold mb-2">Currency</label>
+        <select id="currency" class="w-full p-2 border rounded-md">
+          <option value="BDT">BDT (Bangladeshi Taka)</option>
+          <option value="USD">USD (US Dollar)</option>
+        </select>
+      </div>
+      <div class="mb-4">
+        <label for="success-url" class="block text-gray-700 font-bold mb-2">Success URL</label>
+        <input type="text" id="success-url" class="w-full p-2 border rounded-md" placeholder="Enter Success URL (e.g., /payment/success)" required>
+      </div>
+      <div class="mb-4">
+        <label for="fail-url" class="block text-gray-700 font-bold mb-2">Fail URL</label>
+        <input type="text" id="fail-url" class="w-full p-2 border rounded-md" placeholder="Enter Fail URL (e.g., /payment/fail)" required>
+      </div>
+      <div class="mb-4">
+        <label for="cancel-url" class="block text-gray-700 font-bold mb-2">Cancel URL</label>
+        <input type="text" id="cancel-url" class="w-full p-2 border rounded-md" placeholder="Enter Cancel URL (e.g., /payment/cancel)" required>
+      </div>
+      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Save Settings</button>
+    </form>
+  </main>
+</body>
+</html>

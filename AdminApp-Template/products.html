@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdminApp - Products</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+  <!-- Sidebar -->
+  <aside class="w-64 bg-gray-800 text-white h-screen fixed">
+    <div class="p-4">
+      <h3 class="text-xl font-bold mb-6">Admin Panel</h3>
+      <ul class="mt-4 space-y-2">
+        <li><a href="/dashboard.html" class="hover:bg-gray-700 p-2 block rounded">Dashboard</a></li>
+        <li><a href="/slides.html" class="hover:bg-gray-700 p-2 block rounded">Slides</a></li>
+        <li><a href="/products.html" class="hover:bg-gray-700 p-2 block rounded">Products</a></li>
+        <li><a href="/categories.html" class="hover:bg-gray-700 p-2 block rounded">Categories</a></li>
+        <li><a href="/brands.html" class="hover:bg-gray-700 p-2 block rounded">Brands</a></li>
+        <li><a href="/orders.html" class="hover:bg-gray-700 p-2 block rounded">Orders</a></li>
+        <li><a href="/reviews.html" class="hover:bg-gray-700 p-2 block rounded">Reviews</a></li>
+        <li><a href="/users.html" class="hover:bg-gray-700 p-2 block rounded">Users</a></li>
+        <li><a href="/settings.html" class="hover:bg-gray-700 p-2 block rounded">Settings</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="ml-64 p-8">
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-2xl font-bold">Products</h2>
+      <a href="/add-product.html" class="bg-blue-500 text-white px-4 py-2 rounded-md">Add Product</a>
+    </div>
+    <div class="bg-white shadow-md rounded-lg overflow-hidden">
+      <table class="w-full">
+        <thead class="bg-gray-100">
+          <tr>
+            <th class="p-3 text-left">Name</th>
+            <th class="p-3 text-left">Category</th>
+            <th class="p-3 text-left">Brand</th>
+            <th class="p-3 text-left">Price</th>
+            <th class="p-3 text-left">Image</th>
+            <th class="p-3 text-left">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b">
+            <td class="p-3">Laptop</td>
+            <td class="p-3">Electronics</td>
+            <td class="p-3">Samsung</td>
+            <td class="p-3">$999.99</td>
+            <td class="p-3"><img src="https://dummyimage.com/80x80/000/fff&text=Product" alt="Product Image" class="w-10 h-10 rounded-full"></td>
+            <td class="p-3 space-x-2">
+              <a href="/edit-product.html" class="bg-yellow-500 text-white px-2 py-1 rounded-md">Edit</a>
+              <button class="bg-red-500 text-white px-2 py-1 rounded-md">Delete</button>
+            </td>
+          </tr>
+          <!-- Repeat for other products -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdminApp - Add Category</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+  <!-- Sidebar -->
+  <aside class="w-64 bg-gray-800 text-white h-screen fixed">
+    <div class="p-4">
+      <h3 class="text-xl font-bold mb-6">Admin Panel</h3>
+      <ul class="mt-4 space-y-2">
+        <li><a href="/dashboard.html" class="hover:bg-gray-700 p-2 block rounded">Dashboard</a></li>
+        <li><a href="/slides.html" class="hover:bg-gray-700 p-2 block rounded">Slides</a></li>
+        <li><a href="/products.html" class="hover:bg-gray-700 p-2 block rounded">Products</a></li>
+        <li><a href="/categories.html" class="hover:bg-gray-700 p-2 block rounded">Categories</a></li>
+        <li><a href="/brands.html" class="hover:bg-gray-700 p-2 block rounded">Brands</a></li>
+        <li><a href="/orders.html" class="hover:bg-gray-700 p-2 block rounded">Orders</a></li>
+        <li><a href="/reviews.html" class="hover:bg-gray-700 p-2 block rounded">Reviews</a></li>
+        <li><a href="/users.html" class="hover:bg-gray-700 p-2 block rounded">Users</a></li>
+        <li><a href="/settings.html" class="hover:bg-gray-700 p-2 block rounded">Settings</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="ml-64 p-8">
+    <h2 class="text-2xl font-bold mb-6">Add Category</h2>
+    <form class="bg-white shadow-md rounded-lg p-6">
+      <div class="mb-4">
+        <label for="category-name" class="block text-gray-700 font-bold mb-2">Name</label>
+        <input type="text" id="category-name" class="w-full p-2 border rounded-md" placeholder="Enter category name" required>
+      </div>
+      <div class="mb-4">
+        <label for="category-image" class="block text-gray-700 font-bold mb-2">Image</label>
+        <input type="file" id="category-image" class="w-full p-2 border rounded-md" required>
+      </div>
+      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Add Category</button>
+    </form>
+  </main>
+</body>
+</html>

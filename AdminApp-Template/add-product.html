@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdminApp - Add Product</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+  <!-- Sidebar -->
+  <aside class="w-64 bg-gray-800 text-white h-screen fixed">
+    <div class="p-4">
+      <h3 class="text-xl font-bold mb-6">Admin Panel</h3>
+      <ul class="mt-4 space-y-2">
+        <li><a href="/dashboard.html" class="hover:bg-gray-700 p-2 block rounded">Dashboard</a></li>
+        <li><a href="/slides.html" class="hover:bg-gray-700 p-2 block rounded">Slides</a></li>
+        <li><a href="/products.html" class="hover:bg-gray-700 p-2 block rounded">Products</a></li>
+        <li><a href="/categories.html" class="hover:bg-gray-700 p-2 block rounded">Categories</a></li>
+        <li><a href="/brands.html" class="hover:bg-gray-700 p-2 block rounded">Brands</a></li>
+        <li><a href="/orders.html" class="hover:bg-gray-700 p-2 block rounded">Orders</a></li>
+        <li><a href="/reviews.html" class="hover:bg-gray-700 p-2 block rounded">Reviews</a></li>
+        <li><a href="/users.html" class="hover:bg-gray-700 p-2 block rounded">Users</a></li>
+        <li><a href="/settings.html" class="hover:bg-gray-700 p-2 block rounded">Settings</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="ml-64 p-8">
+    <h2 class="text-2xl font-bold mb-6">Add Product</h2>
+    <form class="bg-white shadow-md rounded-lg p-6">
+      <!-- Product Details -->
+      <div class="mb-4">
+        <label for="product-name" class="block text-gray-700 font-bold mb-2">Product Name</label>
+        <input type="text" id="product-name" class="w-full p-2 border rounded-md" placeholder="Enter product name" required>
+      </div>
+      <div class="mb-4">
+        <label for="short-description" class="block text-gray-700 font-bold mb-2">Short Description</label>
+        <textarea id="short-description" class="w-full p-2 border rounded-md" rows="2" placeholder="Enter short description (max 500 characters)" maxlength="500" required></textarea>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div>
+          <label for="price" class="block text-gray-700 font-bold mb-2">Price</label>
+          <input type="number" step="0.01" id="price" class="w-full p-2 border rounded-md" placeholder="Enter price" required>
+        </div>
+        <div>
+          <label for="discount-price" class="block text-gray-700 font-bold mb-2">Discount Price</label>
+          <input type="number" step="0.01" id="discount-price" class="w-full p-2 border rounded-md" placeholder="Enter discount price (optional)">
+        </div>
+      </div>
+      <div class="mb-4">
+        <label for="is-discount" class="block text-gray-700 font-bold mb-2">Is Discounted?</label>
+        <select id="is-discount" class="w-full p-2 border rounded-md">
+          <option value="false">No</option>
+          <option value="true">Yes</option>
+        </select>
+      </div>
+      <div class="mb-4">
+        <label for="product-image" class="block text-gray-700 font-bold mb-2">Main Image</label>
+        <input type="file" id="product-image" class="w-full p-2 border rounded-md" required>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div>
+          <label for="in-stock" class="block text-gray-700 font-bold mb-2">In Stock?</label>
+          <select id="in-stock" class="w-full p-2 border rounded-md">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
+        </div>
+        <div>
+          <label for="stock" class="block text-gray-700 font-bold mb-2">Stock Quantity</label>
+          <input type="number" id="stock" class="w-full p-2 border rounded-md" placeholder="Enter stock quantity" min="0">
+        </div>
+      </div>
+      <div class="mb-4">
+        <label for="remark" class="block text-gray-700 font-bold mb-2">Remark</label>
+        <select id="remark" class="w-full p-2 border rounded-md">
+          <option value="regular">Regular</option>
+          <option value="popular">Popular</option>
+          <option value="new">New</option>
+          <option value="top">Top</option>
+          <option value="special">Special</option>
+          <option value="trending">Trending</option>
+        </select>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div>
+          <label for="category" class="block text-gray-700 font-bold mb-2">Category</label>
+          <select id="category" class="w-full p-2 border rounded-md">
+            <option value="">Select Category</option>
+            <option value="electronics">Electronics</option>
+            <option value="clothing">Clothing</option>
+          </select>
+        </div>
+        <div>
+          <label for="brand" class="block text-gray-700 font-bold mb-2">Brand</label>
+          <select id="brand" class="w-full p-2 border rounded-md">
+            <option value="">Select Brand</option>
+            <option value="samsung">Samsung</option>
+            <option value="apple">Apple</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Product Details Section -->
+      <h3 class="text-xl font-bold mb-4">Product Details</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div>
+          <label for="img1" class="block text-gray-700 font-bold mb-2">Image 1</label>
+          <input type="file" id="img1" class="w-full p-2 border rounded-md" required>
+        </div>
+        <div>
+          <label for="img2" class="block text-gray-700 font-bold mb-2">Image 2</label>
+          <input type="file" id="img2" class="w-full p-2 border rounded-md">
+        </div>
+        <div>
+          <label for="img3" class="block text-gray-700 font-bold mb-2">Image 3</label>
+          <input type="file" id="img3" class="w-full p-2 border rounded-md">
+        </div>
+        <div>
+          <label for="img4" class="block text-gray-700 font-bold mb-2">Image 4</label>
+          <input type="file" id="img4" class="w-full p-2 border rounded-md">
+        </div>
+      </div>
+      <div class="mb-4">
+        <label for="description" class="block text-gray-700 font-bold mb-2">Full Description</label>
+        <textarea id="description" class="w-full p-2 border rounded-md" rows="6" placeholder="Enter full description"></textarea>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <div>
+          <label for="color" class="block text-gray-700 font-bold mb-2">Color</label>
+          <input type="text" id="color" class="w-full p-2 border rounded-md" placeholder="Enter color">
+        </div>
+        <div>
+          <label for="size" class="block text-gray-700 font-bold mb-2">Size</label>
+          <input type="text" id="size" class="w-full p-2 border rounded-md" placeholder="Enter size">
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Add Product</button>
+    </form>
+  </main>
+</body>
+</html>
