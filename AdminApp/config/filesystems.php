@@ -38,6 +38,13 @@ return [
             'report' => false,
         ],
 
+        'shared' => [
+            'driver' => 'local',
+            'root' => env('UPLOAD_PATH', storage_path('app/shared')),
+            'url' => env('APP_URL').'/shared',
+            'visibility' => 'public'
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

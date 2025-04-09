@@ -1,0 +1,13 @@
+on .env add this variable
+UPLOAD_PATH="C:/shared/uploads"
+
+on config/filesystem.php
+'shared' => [
+    'driver' => 'local',
+    'root' => env('UPLOAD_PATH', storage_path('app/shared')),
+    'url' => env('APP_URL').'/shared',
+    'visibility' => 'public'
+],
+
+on cmd 
+mklink /d "C:\Users\Panda\Desktop\b5_ecom\AdminApp\public\shared" "C:\shared\uploads"
