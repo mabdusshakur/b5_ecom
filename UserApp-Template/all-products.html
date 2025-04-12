@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UserApp - All Products</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4 flex justify-between items-center py-4">
+      <div class="flex items-center space-x-4">
+        <img src="https://dummyimage.com/80x30/000/fff&text=PandaStore" alt="Logo" class="h-8">
+        <a href="/" class="text-gray-700 hover:text-blue-500">Home</a>
+        <a href="/cart.html" class="text-gray-700 hover:text-blue-500">Cart</a>
+        <a href="/wishlist.html" class="text-gray-700 hover:text-blue-500">Wishlist</a>
+      </div>
+      <div class="relative">
+        <button id="user-dropdown-btn" class="flex items-center space-x-2">
+          <img src="https://dummyimage.com/40x40/000/fff&text=User" alt="User" class="h-8 w-8 rounded-full">
+          <span class="text-gray-700">John Doe</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div id="user-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg">
+          <ul class="py-2">
+            <li><a href="/profile.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Profile</a></li>
+            <li><a href="/dashboard.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Dashboard</a></li>
+            <li><a href="/logout.html" class="block px-4 py-2 text-red-500 hover:bg-gray-100">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- All Products Content -->
+  <div class="container mx-auto px-4 py-8">
+    <h2 class="text-2xl font-bold mb-6">All Products</h2>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <!-- Filters Sidebar -->
+      <div class="md:col-span-1 bg-white shadow-md p-4 rounded-lg">
+        <h3 class="text-lg font-semibold mb-4">Filters</h3>
+
+        <div class="flex-grow max-w-sm my-2">
+          <input type="text" placeholder="Search products..." class="w-full p-2 border rounded-md" />
+        </div>
+
+        <!-- Category Filter -->
+        <div class="mb-4">
+          <h4 class="text-sm font-semibold mb-2">Category</h4>
+          <div class="space-y-2">
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-500">
+              <span>Electronics</span>
+            </label>
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-500">
+              <span>Clothing</span>
+            </label>
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-500">
+              <span>Home Appliances</span>
+            </label>
+          </div>
+        </div>
+        <!-- Brand Filter -->
+        <div class="mb-4">
+          <h4 class="text-sm font-semibold mb-2">Brand</h4>
+          <div class="space-y-2">
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-500">
+              <span>Samsung</span>
+            </label>
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-500">
+              <span>Apple</span>
+            </label>
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-500">
+              <span>Nike</span>
+            </label>
+          </div>
+        </div>
+        <!-- Price Range Filter -->
+        <div>
+          <h4 class="text-sm font-semibold mb-2">Price Range</h4>
+          <div class="flex space-x-2">
+            <input type="number" placeholder="Min" class="w-full p-2 border rounded-md">
+            <input type="number" placeholder="Max" class="w-full p-2 border rounded-md">
+          </div>
+        </div>
+        <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md w-full">Apply Filters</button>
+      </div>
+
+      <!-- Product Grid -->
+      <div class="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Product Card -->
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+          <img src="https://dummyimage.com/300x200/ffcc00/fff&text=Product+1" alt="Product" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold">Product Name</h3>
+            <p class="text-gray-600">Description goes here...</p>
+            <div class="flex items-center mt-2">
+              <span class="text-red-500 font-bold">$29.99</span>
+              <span class="text-gray-400 line-through ml-2">$39.99</span>
+            </div>
+            <span class="bg-green-500 text-white px-2 py-1 rounded-full text-xs mt-2 inline-block">New Arrival</span>
+            <div class="mt-4 flex space-x-2">
+              <button class="bg-blue-500 text-white px-4 py-2 rounded-md">Add to Cart</button>
+              <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-md">View Details</button>
+            </div>
+          </div>
+        </div>
+        <!-- Repeat for other products -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Dropdown Script -->
+  <script>
+    const dropdownBtn = document.getElementById('user-dropdown-btn');
+    const dropdownMenu = document.getElementById('user-dropdown');
+    dropdownBtn.addEventListener('click', () => {
+      dropdownMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

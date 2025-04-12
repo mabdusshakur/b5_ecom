@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UserApp - Product Details</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4 flex justify-between items-center py-4">
+      <div class="flex items-center space-x-4">
+        <img src="https://dummyimage.com/80x30/000/fff&text=PandaStore" alt="Logo" class="h-8">
+        <a href="/" class="text-gray-700 hover:text-blue-500">Home</a>
+        <a href="/cart.html" class="text-gray-700 hover:text-blue-500">Cart</a>
+        <a href="/wishlist.html" class="text-gray-700 hover:text-blue-500">Wishlist</a>
+      </div>
+      <div class="relative">
+        <button id="user-dropdown-btn" class="flex items-center space-x-2">
+          <img src="https://dummyimage.com/40x40/000/fff&text=User" alt="User" class="h-8 w-8 rounded-full">
+          <span class="text-gray-700">John Doe</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div id="user-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg">
+          <ul class="py-2">
+            <li><a href="/profile.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Profile</a></li>
+            <li><a href="/dashboard.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Dashboard</a></li>
+            <li><a href="/logout.html" class="block px-4 py-2 text-red-500 hover:bg-gray-100">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Product Details Content -->
+  <div class="container mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Product Images Section -->
+      <div>
+        <!-- Main Image -->
+        <div class="w-full h-96 bg-gray-200 rounded-lg overflow-hidden mb-4">
+          <img id="main-image" src="https://dummyimage.com/600x400/ffcc00/fff&text=Main+Image" alt="Main Product Image" class="w-full h-full object-cover">
+        </div>
+        <!-- Thumbnail Images -->
+        <div class="flex space-x-2">
+          <div class="w-20 h-20 bg-gray-200 rounded-lg overflow-hidden cursor-pointer">
+            <img src="https://dummyimage.com/200x200/ffcc00/fff&text=Thumb+1" alt="Thumbnail 1" class="w-full h-full object-cover" onclick="changeImage('https://dummyimage.com/600x400/ffcc00/fff&text=Main+Image')">
+          </div>
+          <div class="w-20 h-20 bg-gray-200 rounded-lg overflow-hidden cursor-pointer">
+            <img src="https://dummyimage.com/200x200/00ccff/fff&text=Thumb+2" alt="Thumbnail 2" class="w-full h-full object-cover" onclick="changeImage('https://dummyimage.com/600x400/00ccff/fff&text=Main+Image')">
+          </div>
+          <div class="w-20 h-20 bg-gray-200 rounded-lg overflow-hidden cursor-pointer">
+            <img src="https://dummyimage.com/200x200/cc00ff/fff&text=Thumb+3" alt="Thumbnail 3" class="w-full h-full object-cover" onclick="changeImage('https://dummyimage.com/600x400/cc00ff/fff&text=Main+Image')">
+          </div>
+          <div class="w-20 h-20 bg-gray-200 rounded-lg overflow-hidden cursor-pointer">
+            <img src="https://dummyimage.com/200x200/ff66b2/fff&text=Thumb+4" alt="Thumbnail 4" class="w-full h-full object-cover" onclick="changeImage('https://dummyimage.com/600x400/ff66b2/fff&text=Main+Image')">
+          </div>
+        </div>
+      </div>
+      <!-- Product Information -->
+      <div>
+        <h2 class="text-2xl font-bold mb-4">Product Name</h2>
+        <p class="text-gray-600">Description goes here...</p>
+        <div class="flex items-center mt-4">
+          <span class="text-red-500 font-bold text-xl">$29.99</span>
+          <span class="text-gray-400 line-through ml-2">$39.99</span>
+        </div>
+        <div class="mt-4">
+          <h3 class="text-lg font-semibold">Available Options</h3>
+          <div class="flex space-x-4 mt-2">
+            <select class="p-2 border rounded-md">
+              <option>Select Size</option>
+              <option>Small</option>
+              <option>Medium</option>
+              <option>Large</option>
+            </select>
+            <select class="p-2 border rounded-md">
+              <option>Select Color</option>
+              <option>Red</option>
+              <option>Blue</option>
+              <option>Green</option>
+            </select>
+          </div>
+        </div>
+        <div class="mt-4">
+          <button class="bg-blue-500 text-white px-4 py-2 rounded-md">Add to Cart</button>
+          <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-md ml-2">Add to Wishlist</button>
+        </div>
+        <div class="mt-6">
+          <h3 class="text-lg font-semibold">Product Details</h3>
+          <ul class="list-disc pl-6 text-gray-600">
+            <li>Material: Cotton</li>
+            <li>Color: Blue</li>
+            <li>Size: Medium</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Reviews Section -->
+    <div class="mt-8">
+      <h3 class="text-2xl font-bold mb-4">Customer Reviews</h3>
+      <div class="bg-white shadow-md rounded-lg p-4 max-h-96 overflow-y-auto">
+        <div class="space-y-4">
+          <div class="flex items-center space-x-2">
+            <img src="https://dummyimage.com/40x40/000/fff&text=User" alt="Reviewer" class="h-8 w-8 rounded-full">
+            <div>
+              <p class="font-semibold">John Doe</p>
+              <p class="text-sm text-gray-500">October 15, 2023</p>
+            </div>
+          </div>
+          <p class="text-gray-600">This is a great product! It fits perfectly and the quality is amazing.</p>
+        </div>
+        <div class="space-y-4">
+          <div class="flex items-center space-x-2">
+            <img src="https://dummyimage.com/40x40/000/fff&text=User" alt="Reviewer" class="h-8 w-8 rounded-full">
+            <div>
+              <p class="font-semibold">Jane Smith</p>
+              <p class="text-sm text-gray-500">October 14, 2023</p>
+            </div>
+          </div>
+          <p class="text-gray-600">I love this product! The delivery was fast, and the item is exactly as described.</p>
+        </div>
+      </div>
+      <form class="bg-white shadow-md rounded-lg p-4 mt-4">
+        <h4 class="text-lg font-semibold mb-4">Leave a Review</h4>
+        <div class="mb-4">
+          <label for="review" class="block text-gray-700 font-bold mb-2">Your Review</label>
+          <textarea id="review" rows="4" class="w-full p-2 border rounded-md" placeholder="Write your review here..."></textarea>
+        </div>
+        <div class="mb-4">
+          <label for="rating" class="block text-gray-700 font-bold mb-2">Rating</label>
+          <select id="rating" class="w-full p-2 border rounded-md">
+            <option value="5">5 Stars</option>
+            <option value="4">4 Stars</option>
+            <option value="3">3 Stars</option>
+            <option value="2">2 Stars</option>
+            <option value="1">1 Star</option>
+          </select>
+        </div>
+        <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-md">Submit Review</button>
+      </form>
+    </div>
+
+    <!-- Related Products Slider -->
+    <div class="mt-8">
+      <h3 class="text-2xl font-bold mb-4">Related Products</h3>
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide bg-white shadow-md rounded-lg overflow-hidden">
+            <img src="https://dummyimage.com/300x200/ffcc00/fff&text=Product+1" alt="Product" class="w-full h-48 object-cover">
+            <div class="p-4">
+              <h3 class="text-lg font-semibold">Product Name</h3>
+              <p class="text-gray-600">Description goes here...</p>
+              <div class="flex items-center mt-2">
+                <span class="text-red-500 font-bold">$29.99</span>
+                <span class="text-gray-400 line-through ml-2">$39.99</span>
+              </div>
+            </div>
+          </div>
+          <!-- Repeat for other related products -->
+        </div>
+        <div class="swiper-button-prev absolute top-1/2 left-4 transform -translate-y-1/2 z-10"></div>
+        <div class="swiper-button-next absolute top-1/2 right-4 transform -translate-y-1/2 z-10"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <!-- Dropdown Script -->
+  <script>
+    const dropdownBtn = document.getElementById('user-dropdown-btn');
+    const dropdownMenu = document.getElementById('user-dropdown');
+    dropdownBtn.addEventListener('click', () => {
+      dropdownMenu.classList.toggle('hidden');
+    });
+
+    // Initialize Swiper for Related Products Slider
+    const swiper = new Swiper('.swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+        },
+        768: {
+          slidesPerView: 3,
+        },
+        1024: {
+          slidesPerView: 4,
+        },
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+
+    // Function to change the main image
+    function changeImage(imageUrl) {
+      document.getElementById('main-image').src = imageUrl;
+    }
+  </script>
+</body>
+</html>

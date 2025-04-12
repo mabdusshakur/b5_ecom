@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CustomerApp - Order Details</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4 flex justify-between items-center py-4">
+      <div class="flex items-center space-x-4">
+        <img src="https://dummyimage.com/80x30/000/fff&text=PandaStore" alt="Logo" class="h-8">
+        <a href="/" class="text-gray-700 hover:text-blue-500">Home</a>
+        <a href="/cart.html" class="text-gray-700 hover:text-blue-500">Cart</a>
+        <a href="/wishlist.html" class="text-gray-700 hover:text-blue-500">Wishlist</a>
+      </div>
+      <div class="relative">
+        <button id="user-dropdown-btn" class="flex items-center space-x-2">
+          <img src="https://dummyimage.com/40x40/000/fff&text=User" alt="User" class="h-8 w-8 rounded-full">
+          <span class="text-gray-700">John Doe</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div id="user-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg">
+          <ul class="py-2">
+            <li><a href="/profile.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Profile</a></li>
+            <li><a href="/dashboard.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Dashboard</a></li>
+            <li><a href="/logout.html" class="block px-4 py-2 text-red-500 hover:bg-gray-100">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container mx-auto px-4 py-8">
+    <h2 class="text-2xl font-bold mb-6">Order Details</h2>
+    <div class="bg-white shadow-md rounded-lg p-6">
+      <h3 class="text-lg font-semibold mb-4">Order Information</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div>
+          <p class="text-gray-600">Order ID:</p>
+          <p class="font-bold">#1001</p>
+        </div>
+        <div>
+          <p class="text-gray-600">Customer Name:</p>
+          <p class="font-bold">John Doe</p>
+        </div>
+        <div>
+          <p class="text-gray-600">Order Date:</p>
+          <p class="font-bold">2025-03-13</p>
+        </div>
+        <div>
+          <p class="text-gray-600">Status:</p>
+          <select class="p-2 border rounded-md">
+            <option value="pending">Pending</option>
+            <option value="processing">Processing</option>
+            <option value="completed" selected>Completed</option>
+          </select>
+        </div>
+      </div>
+      <h3 class="text-lg font-semibold mb-4">Order Items</h3>
+      <div class="bg-gray-100 rounded-lg overflow-hidden">
+        <table class="w-full">
+          <thead>
+            <tr>
+              <th class="p-3 text-left">Product</th>
+              <th class="p-3 text-left">Quantity</th>
+              <th class="p-3 text-left">Price</th>
+              <th class="p-3 text-left">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="p-3">Product Name</td>
+              <td class="p-3">2</td>
+              <td class="p-3">$149.99</td>
+              <td class="p-3">$299.98</td>
+            </tr>
+            <!-- Repeat for other items -->
+          </tbody>
+        </table>
+      </div>
+      <div class="mt-6 flex justify-between">
+        <button class="bg-blue-500 text-white px-4 py-2 rounded-md">Download Invoice</button>
+        <p class="text-lg font-bold">Grand Total: $299.98</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dropdown Script -->
+  <script>
+    const dropdownBtn = document.getElementById('user-dropdown-btn');
+    const dropdownMenu = document.getElementById('user-dropdown');
+    dropdownBtn.addEventListener('click', () => {
+      dropdownMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

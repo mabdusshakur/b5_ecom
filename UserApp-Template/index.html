@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PandaStore - Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+</head>
+
+<body class="bg-gray-50">
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4 flex justify-between items-center py-4">
+      <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-1">
+          <img src="/assets/img/logo.png" alt="Logo" class="h-8" />
+          <span class="text-md font-semibold">PandaStore</span>
+        </div>
+
+        <a href="/" class="text-gray-700 hover:text-blue-500">Home</a>
+        <a href="/cart.html" class="text-gray-700 hover:text-blue-500">Cart</a>
+        <a href="/wishlist.html" class="text-gray-700 hover:text-blue-500">Wishlist</a>
+      </div>
+      <div class="relative">
+        <button id="user-dropdown-btn" class="flex items-center space-x-2">
+          <img src="https://dummyimage.com/40x40/000/fff&text=User" alt="User" class="h-8 w-8 rounded-full" />
+          <span class="text-gray-700">John Doe</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-700" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div id="user-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg">
+          <ul class="py-2">
+            <li>
+              <a href="/profile.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Profile</a>
+            </li>
+            <li>
+              <a href="/dashboard.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Dashboard</a>
+            </li>
+            <li>
+              <a href="/logout.html" class="block px-4 py-2 text-red-500 hover:bg-gray-100">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Carousel Section -->
+  <div class="swiper-container relative overflow-hidden mt-4">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide w-full h-96 bg-cover bg-center" style="background-image: url('https://dummyimage.com/1200x400/ff7f7f/fff&text=Promo+Banner+1');"></div>
+      <div class="swiper-slide w-full h-96 bg-cover bg-center" style="background-image: url('https://dummyimage.com/1200x400/7fcfff/fff&text=Promo+Banner+2');"></div>
+    </div>
+    <!-- Pagination -->
+    <div class="swiper-pagination absolute bottom-4 left-1/2 transform -translate-x-1/2"></div>
+    <!-- Navigation Buttons -->
+    <div class="swiper-button-prev absolute top-1/2 left-4 transform -translate-y-1/2 z-10"></div>
+    <div class="swiper-button-next absolute top-1/2 right-4 transform -translate-y-1/2 z-10"></div>
+  </div>
+
+  <!-- Horizontal Filter for Remarks -->
+  <div class="container mx-auto px-4 py-6">
+    <div class="flex space-x-4 overflow-x-auto">
+      <button class="px-4 py-2 bg-blue-500 text-white rounded-full whitespace-nowrap">
+        New
+      </button>
+      <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded-full whitespace-nowrap">
+        Popular
+      </button>
+      <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded-full whitespace-nowrap">
+        Trending
+      </button>
+      <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded-full whitespace-nowrap">
+        Best Sellers
+      </button>
+    </div>
+  </div>
+
+  <!-- Product Card Section -->
+  <div class="container mx-auto px-4 py-8">
+    <h2 class="text-2xl font-bold mb-6">Featured Products</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div class="bg-white shadow-md rounded-lg overflow-hidden">
+        <img src="https://dummyimage.com/300x200/ffcc00/fff&text=Product+1" alt="Product"
+          class="w-full h-48 object-cover" />
+        <div class="p-4">
+          <h3 class="text-lg font-semibold">Product Name</h3>
+          <p class="text-gray-600">Description goes here...</p>
+          <div class="flex items-center mt-2">
+            <span class="text-red-500 font-bold">$29.99</span>
+            <span class="text-gray-400 line-through ml-2">$39.99</span>
+          </div>
+          <span class="bg-green-500 text-white px-2 py-1 rounded-full text-xs mt-2 inline-block">New Arrival</span>
+        </div>
+      </div>
+
+      <div class="bg-white shadow-md rounded-lg overflow-hidden">
+        <img src="https://dummyimage.com/300x200/00ccff/fff&text=Product+2" alt="Product"
+          class="w-full h-48 object-cover" />
+        <div class="p-4">
+          <h3 class="text-lg font-semibold">Product Name</h3>
+          <p class="text-gray-600">Description goes here...</p>
+          <div class="flex items-center mt-2">
+            <span class="text-red-500 font-bold">$19.99</span>
+            <span class="text-gray-400 line-through ml-2">$29.99</span>
+          </div>
+          <span class="bg-green-500 text-white px-2 py-1 rounded-full text-xs mt-2 inline-block">Popular</span>
+        </div>
+      </div>
+      <!-- Repeat for other products -->
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="bg-gray-800 text-white py-8 mt-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h4 class="text-lg font-semibold">Contact Us</h4>
+          <p>Email: support@pandastore.com</p>
+          <p>Phone: +123 456 7890</p>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold">Social Media</h4>
+          <div class="flex space-x-4">
+            <a href="#" class="hover:text-blue-500">Facebook</a>
+            <a href="#" class="hover:text-blue-500">Twitter</a>
+            <a href="#" class="hover:text-blue-500">Instagram</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold">Legal</h4>
+          <a href="#" class="block hover:text-blue-500">Terms & Conditions</a>
+          <a href="#" class="block hover:text-blue-500">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Dropdown Script -->
+  <script>
+    const dropdownBtn = document.getElementById('user-dropdown-btn');
+    const dropdownMenu = document.getElementById('user-dropdown');
+    dropdownBtn.addEventListener('click', () => {
+      dropdownMenu.classList.toggle('hidden');
+    });
+  </script>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+  <!-- Swiper Initialization -->
+  <script>
+    const swiper = new Swiper('.swiper-container', {
+      loop: true,
+      autoplay: {
+        delay: 3000,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdminApp - Orders</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+  <!-- Sidebar -->
+  <div class="flex h-screen">
+    <aside class="w-64 bg-gray-800 text-white h-screen fixed">
+      <div class="p-4">
+        <h3 class="text-xl font-bold mb-6">Admin Panel</h3>
+        <ul class="mt-4 space-y-2">
+          <li><a href="/dashboard.html" class="hover:bg-gray-700 p-2 block rounded">Dashboard</a></li>
+          <li><a href="/orders.html" class="hover:bg-gray-700 p-2 block rounded">All Orders</a></li>
+          <li><a href="/products.html" class="hover:bg-gray-700 p-2 block rounded">Products</a></li>
+          <li><a href="/categories.html" class="hover:bg-gray-700 p-2 block rounded">Categories</a></li>
+          <li><a href="/brands.html" class="hover:bg-gray-700 p-2 block rounded">Brands</a></li>
+          <li><a href="/users.html" class="hover:bg-gray-700 p-2 block rounded">Users</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="ml-64 p-8">
+      <h2 class="text-2xl font-bold mb-6">All Orders</h2>
+      <div class="mb-4 flex justify-between items-center">
+        <div>
+          <input type="text" placeholder="Search orders..." class="p-2 border rounded-md">
+        </div>
+        <div class="flex space-x-2">
+          <select class="p-2 border rounded-md">
+            <option value="">Filter by Status</option>
+            <option value="pending">Pending</option>
+            <option value="processing">Processing</option>
+            <option value="completed">Completed</option>
+          </select>
+          <button class="bg-blue-500 text-white px-4 py-2 rounded-md">Apply Filters</button>
+        </div>
+      </div>
+      <div class="bg-white shadow-md rounded-lg overflow-hidden">
+        <table class="w-full overflow-x-auto">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="p-3 text-left">Order ID</th>
+              <th class="p-3 text-left">Customer</th>
+              <th class="p-3 text-left">Amount</th>
+              <th class="p-3 text-left">Status</th>
+              <th class="p-3 text-left">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="p-3">#1001</td>
+              <td class="p-3">John Doe</td>
+              <td class="p-3">$299.99</td>
+              <td class="p-3"><span class="bg-green-200 text-green-800 px-2 py-1 rounded-full">Completed</span></td>
+              <td class="p-3 space-x-2">
+                <a href="/order-details.html" class="text-blue-500 hover:text-blue-700">View Details</a>
+                <button class="text-red-500 hover:text-red-700">Delete</button>
+              </td>
+            </tr>
+            <!-- Repeat for other orders -->
+          </tbody>
+        </table>
+      </div>
+      <div class="mt-4 flex justify-end">
+        <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-md">Previous</button>
+        <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded-md ml-2">Next</button>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

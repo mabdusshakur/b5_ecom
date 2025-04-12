@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CustomerApp - Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4 flex justify-between items-center py-4">
+      <div class="flex items-center space-x-4">
+        <img src="https://dummyimage.com/80x30/000/fff&text=PandaStore" alt="Logo" class="h-8">
+        <a href="/" class="text-gray-700 hover:text-blue-500">Home</a>
+        <a href="/cart.html" class="text-gray-700 hover:text-blue-500">Cart</a>
+        <a href="/wishlist.html" class="text-gray-700 hover:text-blue-500">Wishlist</a>
+      </div>
+      <div class="relative">
+        <button id="user-dropdown-btn" class="flex items-center space-x-2">
+          <img src="https://dummyimage.com/40x40/000/fff&text=User" alt="User" class="h-8 w-8 rounded-full">
+          <span class="text-gray-700">John Doe</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div id="user-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg">
+          <ul class="py-2">
+            <li><a href="/profile.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Profile</a></li>
+            <li><a href="/dashboard.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Dashboard</a></li>
+            <li><a href="/logout.html" class="block px-4 py-2 text-red-500 hover:bg-gray-100">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container mx-auto px-4 py-8">
+    <h2 class="text-2xl font-bold mb-6">Customer Dashboard</h2>
+
+    <!-- Profile Section -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+      <!-- Left Column: Profile Update Form -->
+      <div class="bg-white shadow-md rounded-lg p-6">
+        <h3 class="text-lg font-semibold mb-4">Update Profile</h3>
+        <form>
+          <div class="mb-4">
+            <label for="name" class="block text-gray-700 font-bold mb-2">Name</label>
+            <input type="text" id="name" class="w-full p-2 border rounded-md" value="John Doe">
+          </div>
+          <div class="mb-4">
+            <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
+            <input type="email" id="email" class="w-full p-2 border rounded-md" value="johndoe@example.com">
+          </div>
+          <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md">Save Changes</button>
+        </form>
+      </div>
+
+      <!-- Right Column: Change Password Form -->
+      <div class="bg-white shadow-md rounded-lg p-6">
+        <h3 class="text-lg font-semibold mb-4">Change Password</h3>
+        <form>
+          <div class="mb-4">
+            <label for="current-password" class="block text-gray-700 font-bold mb-2">Current Password</label>
+            <input type="password" id="current-password" class="w-full p-2 border rounded-md">
+          </div>
+          <div class="mb-4">
+            <label for="new-password" class="block text-gray-700 font-bold mb-2">New Password</label>
+            <input type="password" id="new-password" class="w-full p-2 border rounded-md">
+          </div>
+          <div class="mb-4">
+            <label for="confirm-password" class="block text-gray-700 font-bold mb-2">Confirm New Password</label>
+            <input type="password" id="confirm-password" class="w-full p-2 border rounded-md">
+          </div>
+          <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-md">Update Password</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Orders Section -->
+    <div class="bg-white shadow-md rounded-lg p-6">
+      <h3 class="text-lg font-semibold mb-4">Order History</h3>
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="p-3 text-left">Order ID</th>
+              <th class="p-3 text-left">Date</th>
+              <th class="p-3 text-left">Total</th>
+              <th class="p-3 text-left">Status</th>
+              <th class="p-3 text-left">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="p-3">#1001</td>
+              <td class="p-3">2023-10-15</td>
+              <td class="p-3">$299.99</td>
+              <td class="p-3"><span class="bg-green-200 text-green-800 px-2 py-1 rounded-full">Completed</span></td>
+              <td class="p-3">
+                <a href="/order-details.html" class="text-blue-500 hover:text-blue-700">View Details</a>
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td class="p-3">#1002</td>
+              <td class="p-3">2023-10-10</td>
+              <td class="p-3">$149.99</td>
+              <td class="p-3"><span class="bg-yellow-200 text-yellow-800 px-2 py-1 rounded-full">Processing</span></td>
+              <td class="p-3">
+                <a href="/order-details.html" class="text-blue-500 hover:text-blue-700">View Details</a>
+              </td>
+            </tr>
+            <!-- Repeat for other orders -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dropdown Script -->
+  <script>
+    const dropdownBtn = document.getElementById('user-dropdown-btn');
+    const dropdownMenu = document.getElementById('user-dropdown');
+    dropdownBtn.addEventListener('click', () => {
+      dropdownMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

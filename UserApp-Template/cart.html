@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UserApp - Cart</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4 flex justify-between items-center py-4">
+      <div class="flex items-center space-x-4">
+        <img src="https://dummyimage.com/80x30/000/fff&text=PandaStore" alt="Logo" class="h-8">
+        <a href="/" class="text-gray-700 hover:text-blue-500">Home</a>
+        <a href="/cart.html" class="text-gray-700 hover:text-blue-500">Cart</a>
+        <a href="/wishlist.html" class="text-gray-700 hover:text-blue-500">Wishlist</a>
+      </div>
+      <div class="relative">
+        <button id="user-dropdown-btn" class="flex items-center space-x-2">
+          <img src="https://dummyimage.com/40x40/000/fff&text=User" alt="User" class="h-8 w-8 rounded-full">
+          <span class="text-gray-700">John Doe</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div id="user-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg">
+          <ul class="py-2">
+            <li><a href="/profile.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Profile</a></li>
+            <li><a href="/dashboard.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Dashboard</a></li>
+            <li><a href="/logout.html" class="block px-4 py-2 text-red-500 hover:bg-gray-100">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Cart Content -->
+  <div class="container mx-auto px-4 py-8">
+    <h2 class="text-2xl font-bold mb-6">Shopping Cart</h2>
+    <div class="grid grid-cols-1 gap-6">
+      <div class="bg-white shadow-md rounded-lg overflow-hidden">
+        <div class="p-4 flex justify-between items-center">
+          <div>
+            <h3 class="text-lg font-semibold">Product Name</h3>
+            <p class="text-gray-600">$<span id="price-1">29.99</span></p>
+          </div>
+          <div class="flex items-center space-x-2">
+            <button onclick="updateQuantity('1', -1)" class="bg-gray-200 text-gray-700 px-2 py-1 rounded">-</button>
+            <span id="quantity-1">1</span>
+            <button onclick="updateQuantity('1', 1)" class="bg-gray-200 text-gray-700 px-2 py-1 rounded">+</button>
+          </div>
+          <button onclick="removeItem('1')" class="text-red-500 hover:text-red-700">Remove</button>
+        </div>
+      </div>
+      <!-- Repeat for other cart items -->
+    </div>
+    <div class="mt-8 flex justify-end">
+      <p class="text-lg font-bold">Total: $<span id="total-price">29.99</span></p>
+    </div>
+    <div class="mt-4 flex justify-end">
+      <button class="bg-blue-500 text-white px-4 py-2 rounded-md">Checkout</button>
+    </div>
+  </div>
+
+  <!-- Dropdown Script -->
+  <script>
+    const dropdownBtn = document.getElementById('user-dropdown-btn');
+    const dropdownMenu = document.getElementById('user-dropdown');
+    dropdownBtn.addEventListener('click', () => {
+      dropdownMenu.classList.toggle('hidden');
+    });
+
+    // Cart functionality
+    let cartItems = {
+      '1': { price: 29.99, quantity: 1 },
+    };
+
+    function updateQuantity(itemId, change) {
+      const item = cartItems[itemId];
+      if (item) {
+        item.quantity = Math.max(1, item.quantity + change); // Ensure quantity doesn't go below 1
+        document.getElementById(`quantity-${itemId}`).textContent = item.quantity;
+        document.getElementById(`price-${itemId}`).textContent = (item.price * item.quantity).toFixed(2);
+        updateTotal();
+      }
+    }
+
+    function removeItem(itemId) {
+      delete cartItems[itemId];
+      document.getElementById(`cart-item-${itemId}`).remove();
+      updateTotal();
+    }
+
+    function updateTotal() {
+      const total = Object.values(cartItems).reduce((sum, item) => sum + item.price * item.quantity, 0);
+      document.getElementById('total-price').textContent = total.toFixed(2);
+    }
+  </script>
+</body>
+</html>
