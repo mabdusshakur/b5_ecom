@@ -16,9 +16,9 @@ const userDropDown = ref(false)
           <span class="text-md font-semibold">PandaStore</span>
         </div>
 
-        <a href="/" class="text-gray-700 hover:text-blue-500">Home</a>
-        <a href="/cart.html" class="text-gray-700 hover:text-blue-500">Cart</a>
-        <a href="/wishlist.html" class="text-gray-700 hover:text-blue-500">Wishlist</a>
+        <Link href="/" class="text-gray-700 hover:text-blue-500">Home</Link>
+        <Link href="/carts" class="text-gray-700 hover:text-blue-500">Cart</Link>
+        <Link href="/wishlists" class="text-gray-700 hover:text-blue-500">Wishlist</Link>
       </div>
       <div class="relative">
         <button @click="userDropDown = !userDropDown" id="user-dropdown-btn" class="flex items-center space-x-2">

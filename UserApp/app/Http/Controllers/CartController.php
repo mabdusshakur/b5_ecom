@@ -2,31 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Inertia\Inertia;
-use App\Models\Slider;
-use App\Models\Product;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
-class HomeController extends Controller
+class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        $filter = $request->query('filter');
-
-        $sliders  = Slider::all();
-        $products = Product::query();
-
-        if($filter){
-            $products = $products->where('remark', $filter);
-        }
-
-        return Inertia::render("Home/Home",[
-            'sliders' => $sliders,
-            'products'=> $products->get()->load('details'),
-        ]);
+        return Inertia::render('Cart/Cart');
     }
 
     /**

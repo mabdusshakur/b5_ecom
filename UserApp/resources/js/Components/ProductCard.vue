@@ -1,4 +1,6 @@
 <script setup>
+import AddToCart from './AddToCart.vue';
+
 
 const props = defineProps({
     product: Object
@@ -23,6 +25,9 @@ const props = defineProps({
             <span class="bg-green-500 text-white px-2 py-1 rounded-full text-xs mt-2 inline-block">
                 {{ product.remark }}
             </span>
+            <div>
+                <AddToCart :product="product" class="mt-4" />
+            </div>
         </div>
     </div>
 </template>
