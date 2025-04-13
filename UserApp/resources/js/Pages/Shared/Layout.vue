@@ -5,15 +5,18 @@ import Navbar from './Navbar.vue';
 </script>
 
 <template>
-  
+  <div class="min-h-screen flex flex-col">
 
-  <Navbar />
+    <Navbar />
 
-  <!-- Main Content -->
-  <slot />
+    <!-- Main Content -->
+    <main class="flex-grow">
+      <slot />
+    </main>
 
-  <!-- Footer -->
-   <Footer />
+    <!-- Footer -->
+    <Footer />
+  </div>
 
 </template>
 
