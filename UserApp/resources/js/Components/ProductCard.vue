@@ -1,6 +1,6 @@
 <script setup>
 import AddToCart from './AddToCart.vue';
-import { router } from '@inertiajs/vue3';
+import { Link, router } from '@inertiajs/vue3';
 import { useToast } from 'vue-toastification';
 
 const toast = useToast();
@@ -11,19 +11,6 @@ const props = defineProps({
 });
 
 
-const addToWishlist = (id) => {
-    router.post('/wishlists', {
-        product_id: id,
-    }, {
-        preserveState: true,
-        preserveScroll: true,
-
-        onSuccess: (page) => {
-            page.props.flash.success && toast.success(page.props.flash.success);
-            page.props.flash.error && toast.error(page.props.flash.error);
-        },
-    });
-};
 </script>
 
 <template>
@@ -44,13 +31,12 @@ const addToWishlist = (id) => {
             <span class="bg-green-500 text-white px-2 py-1 rounded-full text-xs mt-2 inline-block">
                 {{ product.remark }}
             </span>
-            <div class="flex items-center justify-between mt-4">
-                <AddToCart :product="product" class="mt-4" />
+            <div class="flex space-x-2 mt-4">
+                <AddToCart :product="product"/>
 
-                <button @click="addToWishlist(product.id)"
-                    class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors duration-200">
-                    Add to Wishlist
-                </button>
+                <Link :href="`/products/${product.id}`" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-md">
+                    View Details
+                </Link>
             </div>
         </div>
     </div>
