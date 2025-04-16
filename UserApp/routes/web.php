@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -15,8 +16,21 @@ Route::resource("/dashboards", DashboardController::class);
 Route::post('/profile', [DashboardController::class, 'profile'])->name('profile.post');
 Route::post('/profile/mail', [DashboardController::class, 'profileMail'])->name('profile.mail.post');
 Route::post('/profile/password', [DashboardController::class, 'profilePassword'])->name('profile.password.post');
+Route::get('/order/{id}', [DashboardController::class, 'orderDetails'])->name('order.details');
+Route::get('/order/{id}/invoice', [DashboardController::class, 'downloadInvoice'])->name('order.details');
+
+Route::post('/add-review', [ProductController::class,'addReview'])->name('review.post');
 
 Route::resource("/wishlists", WishlistController::class);
+
+
+Route::post('/checkout', [CheckoutController::class, 'checkout'])->name('checkout.post');
+Route::get('/payment-methods', [CheckoutController::class, 'paymentMethods'])->name('payment.methods');
+
+
+Route::match(['get', 'post'], '/success', [CheckoutController::class, 'paymentSuccess'])->name('payment.success');
+Route::match(['get','post'], '/fail', [CheckoutController::class, 'paymentFailed'])->name('payment.fail');
+Route::match(['get','post'], '/cancel', [CheckoutController::class, 'paymentCancel'])->name('payment.cancel');
 
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
