@@ -7,6 +7,8 @@ use App\Models\Brand;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Models\ProductReview;
+use App\Models\InvoiceProduct;
 
 class ProductController extends Controller
 {
@@ -84,7 +86,44 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // product: Object,
+        // is_on_wishlist: Boolean,
+        // can_review: Boolean,
+        // reviews: Array,
+        // related_products: Array,
+
+        $product = Product::findOrFail($id)->load('category', 'brand', 'details');
+        $related_products = Product::where('category_id', $product->category_id)->where('id', '!=', $id)->take(4)->get();
+        $reviews = ProductReview::where('product_id', $id)->with('customer')->orderBy('created_at','desc')->get()->map(function($review){
+            return [
+                'customer_name' => $review->customer->cus_name,
+                'description' => $review->description,
+                'rating' => $review->rating,
+                'created_at' => $review->created_at->format('Y-m-d'),
+            ];
+        });
+
+        $is_on_wishlist = false;
+        $can_review = false;
+
+        if(auth()->check() && auth()->user()){
+            $user = auth()->user();
+
+            $is_on_wishlist = $user->profile->wishlists->contains('product_id', $product->id);
+
+            $can_review = InvoiceProduct::whereHas('invoice', function ($query) use ($user) {
+                $query->where('customer_id', $user->profile->id)->where('delivery_status', 'Delivered');
+            })->where('product_id', $product->id)->exists();
+        }
+
+
+        return Inertia::render('Products/ProductDetailsPage',[
+            'product' => $product,
+            'is_on_wishlist' => $is_on_wishlist,
+            'can_review' => $can_review,
+            'reviews' => $reviews,
+            'related_products' => $related_products,
+        ]);
     }
 
     /**
@@ -109,5 +148,35 @@ class ProductController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+
+    public function addReview(Request $request){
+        $request->validate([
+            'product_id' => 'required|exists:products,id',
+            'description' => 'required|string|max:200',
+            'rating' => 'required|integer|min:1|max:5',
+        ]);
+
+        $user = auth()->user();
+        $productId = $request->product_id;
+
+        $can_review = InvoiceProduct::whereHas('invoice', function ($query) use ($user) {
+            $query->where('customer_id', $user->profile->id)->where('delivery_status', 'Delivered');
+        })->where('product_id', $productId)->exists();
+
+        if(!$can_review){
+            return redirect()->back()->with('error','You can not review this product');
+        }
+
+        ProductReview::updateOrCreate([
+            'product_id' => $productId,
+            'customer_id' => $user->profile->id,
+        ],[
+            'description' => $request->description,
+            'rating' => $request->rating,
+        ]);
+
+        return redirect()->back()->with('success','Review added successfully');
     }
 }
