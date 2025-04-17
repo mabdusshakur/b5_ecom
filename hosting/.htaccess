@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Skip shared_uploads and public folders
+    RewriteCond %{REQUEST_URI} !^/shared_uploads/ [NC]
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+# Security - Block access to sensitive files
+<FilesMatch "(\.env|\.gitignore|composer\.json|composer\.lock)">
+    Require all denied
+</FilesMatch>
