@@ -13,15 +13,19 @@ use App\Http\Controllers\SSLCommerzCredentialController;
 
 Route::redirect("/", '/dashboard');
 
-Route::get('/dashboard', [DashboardController::class,'index'])->name('page.dashboard');
 
-Route::resource('/settings', SSLCommerzCredentialController::class);
-Route::resource('/brands', BrandController::class);
-Route::resource('/categories', CategoryController::class);
-Route::resource('/sliders', SliderController::class);
-Route::resource('/products', ProductController::class);
-Route::resource('/users', UserController::class);
-Route::resource('/orders', OrderController::class);
+Route::middleware(['auth', 'RoleMiddleware:admin'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('page.dashboard');
 
-Route::get('/login', [AuthController::class,'loginPage'])->name('login');
-Route::post('/login', [AuthController::class,'login'])->name('login.post');
+    Route::resource('/settings', SSLCommerzCredentialController::class);
+    Route::resource('/brands', BrandController::class);
+    Route::resource('/categories', CategoryController::class);
+    Route::resource('/sliders', SliderController::class);
+    Route::resource('/products', ProductController::class);
+    Route::resource('/users', UserController::class);
+    Route::resource('/orders', OrderController::class);
+});
+
+
+Route::get('/login', [AuthController::class, 'loginPage'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login.post');
